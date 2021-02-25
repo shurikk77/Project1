@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    setlocale(0, "");
+    int lampa, shtori, day;
+    cout << "Сейчас день?(1 - да, 0 - нет)";
+    cin >> day;
+    cout << endl;
+    cout << "Шторы открыты?(1 - открыты, 0 - закрыты)";
+    cin >> shtori;
+    cout << endl;
+    cout << "Лампа горит?(1 - горит, 0 - не горит)";
+    cin >> lampa;
+    cout << endl;
+    if ((day == 1) && (shtori == 1))
+    {
+        cout << "В комнате светло";
+    }
+    else if (lampa == 1)
+    {
+        cout << "В комнате светло";
+    }
+    else
+    {
+        cout << "В комнате темно";
+    }
+    return 0;
+}
