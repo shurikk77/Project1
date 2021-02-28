@@ -1,0 +1,32 @@
+#define _USE_MATH_DEFINES
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	setlocale(0, "");
+	double  x, y, b;
+	cout << "¬ведите X = ";
+	cin >> x;
+	cout << endl;
+	cout << "¬ведите y = ";
+	cin >> y;
+	cout << endl;
+	cout << "¬ведите b = ";
+	cin >> b;
+	cout << endl;
+	if (b - y <= 0)
+	{
+		cout << "b-y cant be <= 0";
+	}
+	else if (b - x < 0)
+	{
+		cout << "b-x cant be < 0";
+	}
+	else
+	{
+		cout << log(b - y) * sqrt(b - x);
+	}
+	return 0;
+}
