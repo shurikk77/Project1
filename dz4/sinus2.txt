@@ -13,16 +13,16 @@ int main() {
 	HPEN pen = CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
 	SelectObject(device_context, pen);
 
-	int scale = 100;
-	bool first = true;
-	for (double x = 0; x < 6.29; x += 0.01) {
-		int cx = x * scale;
-		int cy = floor(f(x) * scale);
-		if (first) {
-			MoveToEx(device_context, cx, scale - cy, 0);
-			first = false;
+	int mashtab = 40;
+	bool bool1 = true;
+	for (double x = 0; x < 50; x += 0.01) {
+		int x0 = x * mashtab;
+		int y0 = floor(f(x) * mashtab);
+		if (bool1) {
+			MoveToEx(device_context, x0, mashtab - y0, 0);
+			bool1 = false;
 		}
-		else LineTo(device_context, cx, scale - cy);
+		else LineTo(device_context, x0, mashtab - y0);
 	}
 
 	ReleaseDC(console_handle, device_context);
