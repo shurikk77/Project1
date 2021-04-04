@@ -1,0 +1,25 @@
+#include<iostream>
+#include<math.h>
+#include<float.h>
+using namespace std;
+// 3.2
+int main() {
+	double S, n, m, zaim,p;
+	int a, b;
+	cout << "Ssuda, srok, platej" << endl;
+	cin >> S >> n >> m;
+	b = m;
+	if ((S > 0) && (n > 0) && (S <= (m * n * 12))) {
+		for (double r = 1; r < 100; r++) {
+			p = r / 100;
+			zaim = S * p * pow(1 + p, n) / (12 * (pow(1 + p, n) - 1));
+			a = zaim;
+			if (a == b) {
+				cout << "Procenti : " << r;
+			}
+		}
+	}
+	else
+		cout << "uncorrect";
+	return 0;
+}

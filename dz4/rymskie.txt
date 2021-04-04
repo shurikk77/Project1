@@ -1,0 +1,62 @@
+#include <iostream>
+#include <string>
+using namespace std;
+// 4.6
+int main()
+{
+	setlocale(0, "");
+	char bykva[25];
+	int chislo[25];
+	int after[25];
+	int razmer = 25;
+	int i = 0;
+	int k = 0;
+	int answer = 0;
+	char c;
+	cout << "Входящее : ";
+	while (cin.get(c)) {
+		if (c == '\n') break;
+		bykva[i] = c;
+		i++;
+	}
+	for (i = 0; i < razmer; i++)
+	{
+		if (bykva[i] == 'I') chislo[i] = 1; 
+		if (bykva[i] == 'V') chislo[i] = 5;
+		if (bykva[i] == 'X') chislo[i] = 10;
+		if (bykva[i] == 'L') chislo[i] = 50;
+		if (bykva[i] == 'C') chislo[i] = 100;
+		if (bykva[i] == 'D') chislo[i] = 500;
+		if (bykva[i] == 'M') chislo[i] = 1000;
+	}
+	for (i = 0; i < razmer; i++)
+	{
+		if (chislo[i] < chislo[i + 1])
+		{
+			chislo[i + 1] = chislo[i + 1] - chislo[i];
+			chislo[i] = 0;
+		}
+	}
+	k = 0;
+	for (i = 0; i < razmer; i++)
+	{
+		if ((chislo[i] != 0) && (chislo[i] != -858993460))
+		{
+			after[k] = chislo[i];
+			k++;
+		}
+	}
+	for (i = 0; i < k; i++)
+	{
+		answer = answer + after[i];
+	}
+	if (answer != 0) 
+	{
+		cout << "Исходящее : " << answer;
+	}
+	else
+	{
+		cout << "Uncorrect";
+	}
+	return 0;
+}

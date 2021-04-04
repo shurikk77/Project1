@@ -1,0 +1,31 @@
+#include <iostream>
+#include <cmath>
+#include <windows.h>
+using namespace std;
+
+double f(double x) {
+	return sin(x);
+}
+
+int main() {
+	HWND console_handle = GetConsoleWindow();
+	HDC device_context = GetDC(console_handle);
+	HPEN pen = CreatePen(PS_SOLID, 1, RGB(255, 255, 255));
+	SelectObject(device_context, pen);
+
+	int scale = 100;
+	bool first = true;
+	for (double x = 0; x < 6.29; x += 0.01) {
+		int cx = x * scale;
+		int cy = floor(f(x) * scale);
+		if (first) {
+			MoveToEx(device_context, cx, scale - cy, 0);
+			first = false;
+		}
+		else LineTo(device_context, cx, scale - cy);
+	}
+
+	ReleaseDC(console_handle, device_context);
+	cin.ignore();
+	return 0;
+}

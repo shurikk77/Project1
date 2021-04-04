@@ -1,0 +1,52 @@
+#include<iostream>
+#include<math.h>
+#include<float.h>
+using namespace std;
+// 4.8
+int main() {
+    double A[3][4] = { {5, 2, 0, 10}, {3, 5, 2, 5}, {20, 0, 0 ,0} };
+    double B[4][2] = { {1.20, 0.50}, {2.80, 0.40}, {5.00, 1.00}, {2.00, 1.50} };
+    double product[3][2] = { {0, 0}, {0, 0}, {0, 0} };
+
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            for (int k = 0; k < 4; k++) {
+                product[i][j] += A[i][k] * B[k][j];
+            }
+            cout << product[i][j] << "  ";
+        }
+        cout << endl;
+    }
+    cout << "Zadanie 1: ";
+    double que1a = max(product[0][0], max(product[1][0], product[2][0]));
+    double que1b = min(product[0][0], min(product[1][0], product[2][0]));
+    if (que1a == product[0][0]) cout << "Perivyi bolshe  -  ";
+    if (que1a == product[1][0]) cout << "Vtoroy bolshe  -  ";
+    if (que1a == product[2][0]) cout << "Tretiyi bolshe  -  ";
+    if (que1b == product[0][0]) cout << "Perivyi menshe  ";
+    if (que1b == product[1][0]) cout << "Vtoroy menshe  ";
+    if (que1b == product[2][0]) cout << "Tretiyi menshe  ";
+
+    cout << endl << "Zadanie 2: ";
+    double que2a = max(product[0][1], max(product[1][1], product[2][1]));
+    double que2b = min(product[0][1], min(product[1][1], product[2][1]));
+    if (que2a == product[0][1]) cout << "Perivyi bolshe  -  ";
+    if (que2a == product[1][1]) cout << "Vtoroy bolshe  -  ";
+    if (que2a == product[2][1]) cout << "Tretiyi bolshe  -  ";
+    if (que2b == product[0][1]) cout << "Perivyi menshe  ";
+    if (que2b == product[1][1]) cout << "Vtoroy menshe  ";
+    if (que2b == product[2][1]) cout << "Tretiyi menshe  ";
+    cout << endl << "Zadanie 3: ";
+    cout << product[0][0] + product[1][0] + product[2][0];
+    cout << endl << "Zadanie 4: ";
+    cout << product[0][1] + product[1][1] + product[2][1];
+    cout << endl << "Zadanie 5: ";
+    double sum = 0;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 2; j++) {
+            sum += product[i][j];
+        }
+    }
+    cout << sum;
+    return 0;
+}
