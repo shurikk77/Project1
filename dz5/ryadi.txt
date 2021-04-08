@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+
+int main() 
+{
+    setlocale(0, "");
+    int n,buff;
+    cout << "Введите размерность массива: ";
+    cin >> n;
+    int* first = new int[n]; 
+    int* second = new int[n];
+    int* third = new int[n];
+    for (int i = 0; i < n; i++) {
+        cin >> first[i];
+    }
+    for (int i = 0; i < n; i++) {
+        second[i] = 0;
+    }
+    for (int i = 0; i < n; i++) {
+        third[i] = 0;
+    }
+    cout << endl << "Исходный в 2СС: ";
+    for (int i = 0; i < n; i++) {
+        cout << first[i] << " ";
+    }
+    cout << endl;
+    for (int i = 0; i < n; i++) {
+        int st = 0;
+        buff = first[i];
+        while (buff != 0) {
+            int q = buff % 10;
+            second[i] += q * pow(2, st);
+            st++;
+            buff /= 10;
+        }
+        buff = 1;
+        while (second[i] != 0)
+        {
+            third[i] += (second[i] % 3) * buff;
+            buff *= 10;
+            second[i] /= 3;
+        }
+    }
+    cout << endl << "Измененный в 3СС: ";
+    for (int i = 0; i < n; i++) {
+        cout << third[i] << " ";
+    }
+	return 0;
+}

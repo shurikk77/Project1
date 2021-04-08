@@ -1,0 +1,110 @@
+#include<iostream>
+#include<math.h>
+using namespace std;
+int main() {
+	char a[10];
+	int cc1, cc2, i , n = 0, b = 0, p = 1, k;
+	cin >> cc1;
+	cin >> a;
+	cin >> cc2;
+	for (i = 0; (a[i] == '0') || (a[i] == '1') || (a[i] == '2') || (a[i] == '3') || (a[i] == '4') || (a[i] == '5') || (a[i] == '6') || (a[i] == '7') || (a[i] == '8') || (a[i] == '9') || (a[i] == 'A') || (a[i] == 'B') || (a[i] == 'C') || (a[i] == 'D') || (a[i] == 'E') || (a[i] == 'F'); i++) {
+		k = i;
+	}
+	i = k;
+	for (; n < 10; n++, i--) {
+		switch (a[n]) {
+		case 'F':
+			b += 15 * pow(cc1, i);
+			break;
+		case 'E':
+			b += 14 * pow(cc1, i);
+			break;
+		case 'D':
+			b += 13 * pow(cc1, i);
+			break;
+		case 'C':
+			b += 12 * pow(cc1, i);
+			break;
+		case 'B':
+			b += 11 * pow(cc1, i);
+			break;
+		case 'A':
+			b += 10 * pow(cc1, i);
+			break;
+		case '9':
+			b += 9 * pow(cc1, i);
+			break;
+		case '8':
+			b += 8 * pow(cc1, i);
+			break;
+		case '7':
+			b += 7 * pow(cc1, i);
+			break;
+		case '6':
+			b += 6 * pow(cc1, i);
+			break;
+		case '5':
+			b += 5 * pow(cc1, i);
+			break;
+		case '4':
+			b += 4 * pow(cc1, i);
+			break;
+		case '3':
+			b += 3 * pow(cc1, i);
+			break;
+		case '2':
+			b += 2 * pow(cc1, i);
+			break;
+		case '1':
+			b += 1 * pow(cc1, i);
+			break;
+		case '0':
+			b += 0 * pow(cc1, i);
+			break;
+		}
+	}
+
+	while (p <= b / cc2) {
+		p *= cc2;
+
+	}
+	do {
+		int d = b / p;
+		if (d == 10) {
+			cout << "A" << "";
+			b %= p;
+			p /= cc2;
+		}
+		if (d == 11) {
+			cout << "B" << "";
+			b %= p;
+			p /= cc2;
+		}
+		if (d == 12) {
+			cout << "C" << "";
+			b %= p;
+			p /= cc2;
+		}
+		if (d == 13) {
+			cout << "D" << "";
+			b %= p;
+			p /= cc2;
+		}
+		if (d == 14) {
+			cout << "E" << "";
+			b %= p;
+			p /= cc2;
+		}
+		if (d == 15) {
+			cout << "F" << "";
+			b %= p;
+			p /= cc2;
+		}
+		if (d < 10) {
+			cout << d << "";
+			b %= p;
+			p /= cc2;
+		}
+	} while (p);
+	return 0;
+}
